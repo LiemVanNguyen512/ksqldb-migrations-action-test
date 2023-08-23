@@ -8,9 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: franzbischoff/replace_envs@v1
         env:
-          CONFLUENT_KSQLDB_ENDPOINT: ${{ secrets.CONFLUENT_KSQLDB_ENDPOINT }}
-          CONFLUENT_KSQLDB_API_KEY: ${{ secrets.CONFLUENT_KSQLDB_API_KEY }}
-          CONFLUENT_KSQLDB_API_SECRET: ${{ secrets.CONFLUENT_KSQLDB_API_SECRET }}
+          CONFLUENT_KSQLDB_ENDPOINT: http://localhost:8088
         with:
           from_file: 'ksql-migrations.properties'
           to_file: 'ksql-migrations.properties'
