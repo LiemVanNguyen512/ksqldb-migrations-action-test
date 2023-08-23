@@ -1,4 +1,4 @@
-# ksqldb-migrations-action
+# ksqldb-migrations-action test
 
 This repository demonstrates the use of GitHub Actions to perform [schema migrations](https://docs.ksqldb.io/en/latest/operate-and-deploy/migrations-tool/) upon a ksqlDB cluster running in [Confluent Cloud](https://www.confluent.io/confluent-cloud/).
 
