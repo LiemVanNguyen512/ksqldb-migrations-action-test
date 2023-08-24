@@ -6,12 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: franzbischoff/replace_envs@v1
-        env:
-          CONFLUENT_KSQLDB_ENDPOINT: 35.198.247.201
-        with:
-          from_file: 'ksql-migrations.properties'
-          to_file: 'ksql-migrations.properties'
-          commit: 'false'
+      # - uses: franzbischoff/replace_envs@v1
+      #   env:
+      #     CONFLUENT_KSQLDB_ENDPOINT: 35.198.247.201
+      #   with:
+      #     from_file: 'ksql-migrations.properties'
+      #     to_file: 'ksql-migrations.properties'
+      #     commit: 'false'
       # - uses: ./.github/actions/ksqldb-migrations-validate
       - uses: ./.github/actions/ksqldb-migrations-apply
