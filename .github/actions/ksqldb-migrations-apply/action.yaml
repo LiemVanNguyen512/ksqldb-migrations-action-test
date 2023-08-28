@@ -6,6 +6,6 @@ inputs:
     default: /github/workspace/ksql-migrations.properties
 runs:
   using: docker
-  image: docker://confluentinc/cp-ksqldb-server:6.2.0
+  image: docker://confluentinc/cp-ksql-cli:5.4.10
   args:
-    - ksql-migrations -c ${{ inputs.config }} apply -a
+    - ksql-migrations --config-file ${{ inputs.config }} apply -a
