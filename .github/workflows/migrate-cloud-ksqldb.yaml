@@ -5,13 +5,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      # - uses: franzbischoff/replace_envs@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # - name: Replace envs
+      #   uses: franzbischoff/replace_envs@v1
       #   env:
-      #     CONFLUENT_KSQLDB_ENDPOINT: 35.198.247.201
+      #     KSQLDB_ENDPOINT: http://35.198.247.201:8088
       #   with:
       #     from_file: 'ksql-migrations.properties'
       #     to_file: 'ksql-migrations.properties'
       #     commit: 'false'
-      # - uses: ./.github/actions/ksqldb-migrations-validate
-      - uses: ./.github/actions/ksqldb-migrations-apply
+
+
+
+      - name: ksqlDB migrations validate
+        uses: ./.github/actions/ksqldb-migrations-validate
+
+      - name: ksqlDB migrations apply
+        if: github.event_name == 'push'
+        uses: ./.github/actions/ksqldb-migrations-apply
+      
